@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<style>
+    *:hover {
+        cursor: default;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    input:hover {
+        cursor: text;
+    }
+
+    body {
+        display: flex;
+        justify-content:center;
+        /* Horizontal alignment */
+        align-items: center;
+        /* Vertical alignment */
+        height: 100vh;
+        /* Make sure the body covers the entire viewport height */
+        margin: 0;
+        /* Remove default margin */
+        background-image: url('images.jpg');
+        background-size:auto;
+        /* Cover the entire background */
+        background-position:center;
+        /* Center the background image */
+       
+
+    }
+
+    .ukesh {
+        background-color: rgb(36, 116, 14);
+        color: rgb(255, 255, 255);
+        width: fit-content;
+        padding: 20px;
+        border: 10px;
+        border-style: double;
+        border-color: black;
+    }
+
+    .boox {
+        border: 2px;
+        border-style: inset;
+        padding: 5px;
+    }
+
+    .new {
+        text-align: center;
+    }
+
+    
+</style>
+
+<script>
+    var totalscore = 10
+    function check() {
+        var a = Math.random()
+        var result = Math.floor(a * 10) + 1
+        var b = document.getElementById("one")
+        var bvalue = b.value
+
+
+        console.log(result)
+        if (result == bvalue) {
+            resul.textContent = "You r right!";
+            alert("You Won!!");
+        } else {
+            totalscore -= 1;
+            if (totalscore == 0) {
+                document.getElementById("resul").textContent = "You lost!";
+                alert("You Lost!!");
+                document.getElementById("score").textContent = "Score: " + totalscore;
+                document.getElementById("one").disabled = true;
+                document.getElementById("checkButton").disabled = true;
+                document.getElementById("retry").textContent = "Try Again!!"
+                var stye = document.getElementsByClassName("ukesh")[0];
+                stye.style.backgroundColor = "rgb(180, 0, 0)";
+            } else {
+                document.getElementById("score").textContent = "Score: " + totalscore;
+                document.getElementById("resul").textContent = "Wrong!";
+            }
+        }
+
+    }
+</script>
+
+<head>
+    <title>Guess the number</title>
+    <link rel="icon" href="images-removebg-preview (2).png">
+</head>
+
+<body>
+    <div class="ukesh" id="wer">
+        <h1 class="boox">Guess the Number from 1 to 10</h1>
+        <div class="new"><b>
+                <p>Number: <input id="one" type="number" placeholder="enter the number"></p>
+                <button id="checkButton" onclick="check()">Check</button>
+                <p id="resul">Press the Check button</p>
+                <p id="score">Score=10</p>
+                <p id="retry"><b>Your score will be reduced for every wrong guess</b></p>
+            </b></div>
+    </div>
+</body>
+
+</html>
